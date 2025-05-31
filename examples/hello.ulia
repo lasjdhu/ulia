@@ -1,0 +1,5 @@
+std = import("std")
+
+greet = std.print("Hello, world!")
+
+greet # "Hello, world!"

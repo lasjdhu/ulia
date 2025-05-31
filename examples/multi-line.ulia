@@ -1,0 +1,6 @@
+multi_line(c, d) = {
+  e = 7
+  c + e * d
+}
+
+multi_line(1, 2) # 15
