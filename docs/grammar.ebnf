@@ -1,0 +1,29 @@
+program    ::= statement*
+
+statement  ::= definition | expression
+
+definition ::= identifier "(" parameters? ")" "=" expression | identifier "=" expression
+
+parameters ::= identifier ("," identifier)*
+
+expression ::= term (operator term)*
+
+term       ::= literal | identifier | call | "(" expression ")"
+
+call       ::= identifier "(" arguments? ")"
+
+arguments  ::= expression ("," expression)*
+
+literal    ::= number | string
+
+number     ::= [0-9]+ ("." [0-9]+)?
+
+string     ::= "\"" (escapeseq | character)* "\""
+
+escapeseq  ::= "\" ( "n" | "r" | "t" | "\\" | "\"" | "b" | "f" | "v" | "0" )
+
+character  ::= [^"\\\n]
+
+identifier ::= [a-zA-Z] [a-zA-Z0-9]*
+
+operator   ::= "+" | "-" | "*" | "/" | "==" | "!=" | "<" | ">" | "<=" | ">="
